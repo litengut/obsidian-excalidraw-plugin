@@ -234,5 +234,7 @@ declare namespace ExcalidrawLib {
   function syncInvalidIndices(elements: readonly ExcalidrawElement[]): OrderedExcalidrawElement[];
   function syncMovedIndices(elements: readonly ExcalidrawElement[], movedElements: ElementsMap): OrderedExcalidrawElement[];
   function getDefaultColorPalette(): [string, string, string, string, string][];
+  function initMathSubtype(api: any): void;
+  function useMathSubtype(api: any): void;
 }
 

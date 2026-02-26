@@ -5518,6 +5518,15 @@ export default class ExcalidrawView extends TextFileView implements HoverParent{
   private setExcalidrawAPI (api: ExcalidrawImperativeAPI) {
     this.excalidrawAPI = api;
     //api.setLocalFont(this.plugin.settings.experimentalEnableFourthFont);
+
+    // Initialize the MathJax math subtype for inline math rendering.
+    // initMathSubtype registers the subtype methods, actions, and i18n
+    // so that text elements can render math via the 3-way toggle (text/math/mixed).
+    const { initMathSubtype } = this.packages.excalidrawLib;
+    if (typeof initMathSubtype === "function") {
+      initMathSubtype(api);
+    }
+
     window.setTimeout(() => {
       // window migration scenario
       if (!this.plugin) return;
